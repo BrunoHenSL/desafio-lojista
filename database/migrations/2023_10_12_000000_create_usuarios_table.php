@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('cpf')->unique();
             $table->string('email')->unique();
             $table->string('senha');
-            $table->enum('type', ['comum', 'lojista']); // Usamos 'type' para distinguir entre comum e lojista.
+            $table->enum('type', ['comum', 'lojista']); 
             $table->timestamps();
         });
     }    

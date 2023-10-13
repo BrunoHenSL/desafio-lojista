@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('carteira', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('usuario_id')->unique();
-            $table->decimal('saldo', 10, 2)->default(0); // Use decimal para valores monetários.
+            $table->decimal('saldo', 10, 2)->default(0); 
             $table->timestamps();
     
             $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
