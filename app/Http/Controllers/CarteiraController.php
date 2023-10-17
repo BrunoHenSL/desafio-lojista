@@ -28,7 +28,7 @@ class CarteiraController extends Controller
     public function criarCarteira(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'user_id' => 'required|exists:users,id',
+            'usuario_id' => 'required|exists:users,id',
             'saldo' => 'required|numeric|min:0.01',
         ]);
 
