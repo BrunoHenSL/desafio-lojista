@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Carteira extends Model
 {
-    use HasFactory;
+    public function usuario()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -5,7 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Usuarios extends Model
+class Usuarios extends Authenticatable
 {
-    use HasFactory;
+    public function carteira()
+    {
+        return $this->hasOne(Wallet::class);
+    }
 }
