@@ -3,34 +3,30 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\UsuariosController;
 use App\Models\Usuario;
 use App\Repositories\UsuarioRepository;
 use Illuminate\Http\Request;
 
-class UsuarioController extends Controller
+class UsuariosController extends Controller
 {
     protected $usuarioRepository;
 
     public function __construct(UsuarioRepository $usuarioRepository)
     {
-        $this->usuarioRepository = $usuarioRepository;
+    $this->usuarioRepository = $usuarioRepository;
     }
 
-    public function index()
+    public function listarUsuarios()
     {
-        $usuarios = $this->usuarioRepository->listar();
-        return view('usuarios.index', compact('usuarios'));
+        $usuarios = $this->usuarioRepository->listarUsuarios();
+        
+        return response()->json($usuarios); 
     }
 
-    public function show($id)
+    public function criarUsuario()
     {
-        $usuario = $this->usuarioRepository->encontrar($id);
-
-        if (!$usuario) {
-            return redirect()->route('usuarios.index')->with('error', 'Usuário não encontrado');
-        }
-
-        return view('usuarios.show', compact('usuario'));
+        
     }
 
 }
